@@ -1,24 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import Layout from './Layouts/Layout';
+import { Route, Routes } from 'react-router-dom';
+import { LandingPage } from './Pages/LandingPage';
+import NotFound from './Pages/NotFound';
+import { ContactList } from './Pages/ContactList';
+import  AddContact  from './Pages/AddContact';
+import Dashboard from './Pages/Dashboard';
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Layout>
+      <Routes>
+        <Route path="/" element={<Dashboard />} />
+        <Route path="/contacts" element={<ContactList />} />
+        <Route path="contacts/add" element={<AddContact />} />
+        <Route path="contacts/edit/:id" element={<AddContact />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </Layout>
   );
 }
 
