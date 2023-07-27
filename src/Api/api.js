@@ -24,8 +24,9 @@ const postData = async (endpoint, data, options = {}) => {
       body: JSON.stringify(data),
       ...options,
     });
-
+ 
     if (!response.ok) {
+      
       throw new Error('Network response was not ok');
     }
 
